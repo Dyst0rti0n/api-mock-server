@@ -1,0 +1,9 @@
+basePath: /api/v1
+host: localhost:8080
+info:
+  contact: {}
+  description: This is an advanced mock server built with Go.
+  title: Advanced Mock Server API
+  version: "1.0"
+paths: {}
+swagger: "2.0"

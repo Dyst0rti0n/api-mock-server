@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mockserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mockserver
+  template:
+    metadata:
+      labels:
+        app: mockserver
+    spec:
+      containers:
+        - name: mockserver
+          image: your-docker-image
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ENV
+              value: "production"
+        - name: db
+          image: postgres:latest
+          env:
+            - name: POSTGRES_USER
+              value: "user"
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_DB
+              value: "mockserver"
+          ports:
+            - containerPort: 5432
